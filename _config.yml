@@ -1,0 +1,46 @@
+# Основные настройки
+title: "Konohive - Портфолио разработчика"
+description: "Мои проекты и опыт в разработке"
+baseurl: "" # Оставьте пустым для username.github.io
+url: "https://konohive.github.io"
+
+# Информация о вас
+author:
+  name: "Ваше Имя"
+  email: "ваш.email@example.com"
+  github: "Konohive"
+  linkedin: "ваш-linkedin"
+  telegram: "ваш-telegram"
+
+# Настройки Jekyll
+theme: minima # Простая встроенная тема
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Настройки сборки
+markdown: kramdown
+highlighter: rouge
+
+# Коллекции (для проектов)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Настройка Sass
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Настройка сайта
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

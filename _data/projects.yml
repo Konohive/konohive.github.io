@@ -1,0 +1,26 @@
+- title: "Интернет-магазин"
+  description: "Полнофункциональный интернет-магазин с админ-панелью"
+  technologies: ["Django", "PostgreSQL", "React", "Docker"]
+  status: "Завершен"
+  github: "https://github.com/username/shop"
+  demo: "https://demo.example.com"
+  image: "/assets/images/project1.jpg"
+  date: "2024-01-15"
+
+- title: "API для аналитики"
+  description: "Микросервис для сбора и анализа данных"
+  technologies: ["FastAPI", "MongoDB", "Redis", "Celery"]
+  status: "В разработке"
+  github: "https://github.com/username/analytics-api"
+  demo: null
+  image: "/assets/images/project2.jpg"
+  date: "2024-02-20"
+
+- title: "Мобильное приложение"
+  description: "Кроссплатформенное приложение на React Native"
+  technologies: ["React Native", "Firebase", "Redux"]
+  status: "В планах"
+  github: null
+  demo: null
+  image: "/assets/images/project3.jpg"
+  date: "2024-03-10"
