@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форум сообщества - Konohive</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <main class="container">
+        <section class="forum-header">
+            <div class="forum-title">
+                <div class="title-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="title-content">
+                    <h1>Форум сообщества Konohive</h1>
+                    <p class="forum-subtitle">Обсуждайте проекты, задавайте вопросы, делитесь идеями и сообщайте об ошибках</p>
+                </div>
+            </div>
+            
+            <div class="forum-actions">
+                <div class="forum-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="topics-count">0</span>
+                            <span class="stat-label">всего тем</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="open-count">0</span>
+                            <span class="stat-label">открыто</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" id="closed-count">0</span>
+                            <span class="stat-label">закрыто</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://github.com/Konohive/konohive.github.io/issues/new" 
+                   class="btn-new-topic" target="_blank">
+                   <i class="fas fa-plus-circle"></i> Создать новую тему
+                </a>
+            </div>
+        </section>
+        
+        <section class="forum-controls">
+            <div class="control-group">
+                <h3><i class="fas fa-filter"></i> Фильтры</h3>
+                <div class="forum-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-layer-group"></i> Все темы
+                    </button>
+                    <button class="filter-btn" data-filter="open">
+                        <i class="fas fa-circle"></i> Открытые
+                    </button>
+                    <button class="filter-btn" data-filter="closed">
+                        <i class="fas fa-check-circle"></i> Закрытые
+                    </button>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3><i class="fas fa-search"></i> Поиск</h3>
+                <div class="forum-search">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="topic-search" placeholder="Поиск по темам, описанию, автору...">
+                        <button class="search-clear" id="searchClear">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="forum-topics">
+            <div id="loading-state" class="forum-state">
+                <div class="loading-spinner">
+                    <div class="spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+                <h3>Загружаем темы с GitHub...</h3>
+                <p>Подключаемся к API GitHub Issues</p>
+            </div>
+            
+            <div id="empty-state" class="forum-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="far fa-comment-dots"></i>
+                </div>
+                <h3>Тем для обсуждения пока нет</h3>
+                <p>Будьте первым, кто создаст тему для обсуждения!</p>
+                <a href="https://github.com/Konohive/konohive.github.io/issues/new" 
+                   class="btn-new-topic" target="_blank">
+                   <i class="fas fa-plus"></i> Создать первую тему
+                </a>
+                <p class="empty-note">
+                    <i class="fas fa-lightbulb"></i> Начните с вопроса, идеи или сообщения об ошибке
+                </p>
+            </div>
+            
+            <div id="error-state" class="forum-state" style="display: none;">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Ошибка загрузки тем</h3>
+                <p id="error-message">Не удалось подключиться к GitHub API</p>
+                <button class="btn-retry" id="retryBtn">
+                    <i class="fas fa-redo"></i> Попробовать снова
+                </button>
+                <p class="error-note">
+                    <i class="fas fa-info-circle"></i> Проверьте подключение к интернету и настройки GitHub API
+                </p>
+            </div>
+            
+            <div id="topics-container" class="topics-list" style="display: none;">
+                <!-- Сюда загрузится список Issues -->
+            </div>
+            
+            <div class="forum-pagination" id="pagination" style="display: none;">
+                <button class="page-btn" id="prevPage" disabled>
+                    <i class="fas fa-chevron-left"></i> Назад
+                </button>
+                <div class="page-info">
+                    Страница <span id="currentPage">1</span> из <span id="totalPages">1</span>
+                </div>
+                <button class="page-btn" id="nextPage" disabled>
+                    Вперед <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+        
+        <section class="forum-info">
+            <div class="info-card">
+                <div class="info-header">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h2>Как работает этот форум?</h2>
+                </div>
+                
+                <div class="info-content">
+                    <div class="info-block">
+                        <div class="block-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="block-content">
+                            <h3>На базе GitHub Issues</h3>
+                            <p>Каждая тема форума — это Issue в репозитории <strong>Konohive/konohive.github.io</strong>. Все обсуждения хранятся непосредственно на GitHub.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <div class="block-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="block-content">
+                            <h3>Авторизация через GitHub</h3>
+                            <p>Для создания тем и комментариев нужен аккаунт GitHub. Нажмите на тему → перейдёте на GitHub → авторизуйтесь → пишите комментарий.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <div class="block-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="block-content">
+                            <h3>Безопасность и надёжность</h3>
+                            <p>Ваши данные в безопасности. Форум будет работать до тех пор, пока работает GitHub. Даже если этот сайт перестанет работать, все обсуждения останутся в вашем репозитории.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-block">
+                        <div class="block-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <div class="block-content">
+                            <h3>Автоматическое обновление</h3>
+                            <p>Темы обновляются в реальном времени через GitHub API. Новые комментарии появляются автоматически без перезагрузки страницы.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-footer">
+                    <div class="tech-details">
+                        <h4><i class="fas fa-cog"></i> Технические детали:</h4>
+                        <ul>
+                            <li>Репозиторий: <code>Konohive/konohive.github.io</code></li>
+                            <li>API: GitHub REST API v3</li>
+                            <li>Обновление: Каждые 60 секунд</li>
+                            <li>Хранение данных: Issues вашего репозитория</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://github.com/Konohive/konohive.github.io/issues" 
+                       class="btn-github" target="_blank">
+                       <i class="fab fa-github"></i> Открыть Issues на GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/forum.js"></script>
+</body>
+</html>

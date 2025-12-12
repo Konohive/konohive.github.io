@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konohive - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <main class="container">
+        <section class="hero">
+            <h1><i class="fas fa-rocket"></i> Добро пожаловать в Konohive</h1>
+            <p>Платформа для моих проектов и разработок. Исследуйте, тестируйте, обсуждайте!</p>
+            <div class="cta-buttons">
+                <a href="forum/forum.html" class="btn-primary">
+                    <i class="fas fa-comments"></i> Перейти на форум
+                </a>
+                <a href="#projects" class="btn-secondary">
+                    <i class="fas fa-code"></i> Посмотреть проекты
+                </a>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects-preview">
+            <h2><i class="fas fa-project-diagram"></i> Мои проекты</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-icon">🎮</div>
+                    <h3><a href="tabs/tab1.html">Проект 1</a></h3>
+                    <p>Игровой проект на Unity с уникальной механикой и графикой.</p>
+                    <span class="project-tag">В разработке</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📱</div>
+                    <h3><a href="tabs/tab2.html">Проект 2</a></h3>
+                    <p>Мобильное приложение для повышения продуктивности и трекинга задач.</p>
+                    <span class="project-tag">Альфа</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📖</div>
+                    <h3><a href="tabs/tab3.html">Проект 3</a></h3>
+                    <p>Интерактивная визуальная новелла с нелинейным сюжетом.</p>
+                    <span class="project-tag">Бета</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎨</div>
+                    <h3><a href="tabs/tab4.html">Проект 4</a></h3>
+                    <p>Инструмент для создания и редактирования пиксель-арта.</p>
+                    <span class="project-tag">Выпущен</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">⚡</div>
+                    <h3><a href="tabs/tab5.html">Проект 5</a></h3>
+                    <p>Эксперимент с физическим движком и симуляциями частиц.</p>
+                    <span class="project-tag">Прототип</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="forum-teaser">
+            <div class="teaser-header">
+                <i class="fas fa-comment-dots"></i>
+                <h2>Форум сообщества</h2>
+            </div>
+            <p>Обсуждайте проекты, задавайте вопросы, делитесь идеями и сообщайте об ошибках.</p>
+            <p class="tech-info"><i class="fab fa-github"></i> Форум работает на GitHub Issues - надёжно и стабильно.</p>
+            <div class="teaser-features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Данные в безопасности</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-sync"></i>
+                    <span>Автообновление</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>Работает пока работает GitHub</span>
+                </div>
+            </div>
+            <a href="forum/forum.html" class="btn-forum">
+                <i class="fas fa-arrow-right"></i> Перейти к обсуждениям
+            </a>
+        </section>
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
