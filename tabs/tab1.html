@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект 1 - Konohive</title>
+    <style>
+        /* Стили ТОЛЬКО для страницы проекта */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+        .project-content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .project-content h1 {
+            color: #2ea44f;
+            margin-bottom: 20px;
+        }
+        .project-content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .project-forum {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0fff4;
+            border-radius: 6px;
+            border: 1px solid #d1f7d8;
+        }
+        .project-forum a {
+            color: #2ea44f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <main class="container">
+        <article class="project-content">
+            <h1>Проект 1</h1>
+            <p>Это первый проект. Здесь будет описание технологий, особенностей и статуса разработки.</p>
+            <p>Используемые технологии: Unity, C#, Blender, Git.</p>
+            <p>Статус: В активной разработке.</p>
+            
+            <div class="project-forum">
+                <h3>Обсуждение проекта</h3>
+                <p>Хотите задать вопрос или предложить идею?</p>
+                <p>Присоединяйтесь к обсуждению на <a href="../forum.html">форуме</a>.</p>
+            </div>
+        </article>
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

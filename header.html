@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <style>
+        /* Стили ТОЛЬКО для хедера */
+        .site-header {
+            background: white;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ea44f;
+            text-decoration: none;
+        }
+        .main-nav {
+            display: flex;
+            gap: 15px;
+        }
+        .main-nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .main-nav a:hover {
+            background: #f0f0f0;
+        }
+        .main-nav a.active {
+            background: #2ea44f;
+            color: white;
+        }
+        .main-nav .forum-link {
+            background: #2ea44f;
+            color: white;
+        }
+        .main-nav .forum-link:hover {
+            background: #22863a;
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html">Konohive</a>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Главная</a>
+            <a href="tabs/tab1.html">Проект 1</a>
+            <a href="tabs/tab2.html">Проект 2</a>
+            <a href="tabs/tab3.html">Проект 3</a>
+            <a href="tabs/tab4.html">Проект 4</a>
+            <a href="tabs/tab5.html">Проект 5</a>
+            <a href="forum.html" class="forum-link">Форум</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+// Подсветка текущей страницы
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.main-nav a');
+    const currentPage = window.location.pathname.split('/').pop();
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
