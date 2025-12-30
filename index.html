@@ -3,141 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konohive - Главная</title>
-    <style>
-        /* Стили ТОЛЬКО для главной страницы */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        main {
-            flex: 1;
-            padding: 40px 0;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-        }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #2ea44f;
-        }
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .cta {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #2ea44f;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .btn:hover {
-            background: #22863a;
-        }
-        .projects {
-            padding: 40px 0;
-        }
-        .projects h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #333;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .project {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid #ddd;
-            transition: all 0.3s;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-color: #2ea44f;
-        }
-        .project h3 {
-            margin-bottom: 10px;
-            color: #2ea44f;
-        }
-        .project p {
-            color: #666;
-            margin: 0;
-        }
-    </style>
+    <title>GitHub Explorer - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Хедер загрузится сюда -->
-    <div id="header-container"></div>
+    <div id="header"></div>
     
-    <!-- ТЕЛО САЙТА (уникальное для этой страницы) -->
-    <main class="container">
-        <section class="hero">
-            <h1>Konohive</h1>
-            <p>Мои проекты и разработки. Обсуждайте на форуме.</p>
-            <div class="cta">
-                <a href="forum.html" class="btn">Форум</a>
-                <a href="#projects" class="btn">Проекты</a>
-            </div>
-        </section>
+    <main>
+        <h1 class="page-title">Добро пожаловать в GitHub Explorer</h1>
+        <div style="padding: 2rem; background: #f6f8fa; border-radius: 6px; margin-bottom: 2rem;">
+            <h2 style="margin-bottom: 1rem;">Возможности сайта:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0;">✅ 4 основные закладки в хедере</li>
+                <li style="padding: 0.5rem 0;">✅ Каждая закладка имеет выпадающее меню с 3 подстраницами</li>
+                <li style="padding: 0.5rem 0;">✅ Общий хедер и футер на всех страницах</li>
+                <li style="padding: 0.5rem 0;">✅ Адаптивный дизайн</li>
+            </ul>
+        </div>
         
-        <section id="projects" class="projects">
-            <h2>Проекты</h2>
-            <div class="projects-grid">
-                <a href="tabs/tab1.html" class="project">
-                    <h3>Проект 1</h3>
-                    <p>Описание проекта 1</p>
-                </a>
-                <a href="tabs/tab2.html" class="project">
-                    <h3>Проект 2</h3>
-                    <p>Описание проекта 2</p>
-                </a>
-                <a href="tabs/tab3.html" class="project">
-                    <h3>Проект 3</h3>
-                    <p>Описание проекта 3</p>
-                </a>
-                <a href="tabs/tab4.html" class="project">
-                    <h3>Проект 4</h3>
-                    <p>Описание проекта 4</p>
-                </a>
-                <a href="tabs/tab5.html" class="project">
-                    <h3>Проект 5</h3>
-                    <p>Описание проекта 5</p>
-                </a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Репозитории</h3>
+                <p>Просмотр репозиториев GitHub пользователей</p>
+                <a href="repositories/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
             </div>
-        </section>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Звезды</h3>
+                <p>Отмеченные звездами проекты</p>
+                <a href="stars/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Gists</h3>
+                <p>Фрагменты кода пользователей</p>
+                <a href="gists/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Активность</h3>
+                <p>Последние действия пользователей</p>
+                <a href="activity/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+        </div>
     </main>
     
-    <!-- Футер загрузится сюда -->
-    <div id="footer-container"></div>
+    <div id="footer"></div>
     
+    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
