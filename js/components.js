@@ -1,72 +1,53 @@
-// Компонент хедера
-const Header = `
-<header class="site-header">
-    <div class="nav-container">
-        <a href="index.html" class="logo">GitHub Explorer</a>
-        
-        <nav class="main-nav">
-            <!-- Главная -->
-            <a href="index.html" class="nav-link">Главная</a>
-            
-            <!-- Репозитории с выпадающим меню -->
-            <div class="nav-item">
-                <a href="repositories/index.html" class="nav-link">Репозитории</a>
-                <div class="dropdown-menu">
-                    <a href="repositories/popular.html">Популярные</a>
-                    <a href="repositories/recent.html">Недавние</a>
-                    <a href="repositories/forks.html">Форки</a>
-                </div>
-            </div>
-            
-            <!-- Звезды с выпадающим меню -->
-            <div class="nav-item">
-                <a href="stars/index.html" class="nav-link">Звезды</a>
-                <div class="dropdown-menu">
-                    <a href="stars/trending.html">Тренды</a>
-                    <a href="stars/languages.html">По языкам</a>
-                    <a href="stars/topics.html">По темам</a>
-                </div>
-            </div>
-            
-            <!-- Gists с выпадающим меню -->
-            <div class="nav-item">
-                <a href="gists/index.html" class="nav-link">Gists</a>
-                <div class="dropdown-menu">
-                    <a href="gists/public.html">Публичные</a>
-                    <a href="gists/private.html">Приватные</a>
-                    <a href="gists/starred.html">Отмеченные</a>
-                </div>
-            </div>
-            
-            <!-- Активность с выпадающим меню -->
-            <div class="nav-item">
-                <a href="activity/index.html" class="nav-link">Активность</a>
-                <div class="dropdown-menu">
-                    <a href="activity/commits.html">Коммиты</a>
-                    <a href="activity/issues.html">Issues</a>
-                    <a href="activity/pulls.html">Pull Requests</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
-`;
-
-// Компонент футера
-const Footer = `
-<footer class="site-footer">
-    <div class="footer-content">
-        <p>© 2024 GitHub Explorer. Исследуйте GitHub профили.</p>
-        <div class="footer-links">
-            <a href="index.html">Главная</a>
-            <a href="repositories/index.html">Репозитории</a>
-            <a href="stars/index.html">Звезды</a>
-            <a href="gists/index.html">Gists</a>
-            <a href="activity/index.html">Активность</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Explorer - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header"></div>
+    
+    <main>
+        <h1 class="page-title">Добро пожаловать в GitHub Explorer</h1>
+        <div style="padding: 2rem; background: #f6f8fa; border-radius: 6px; margin-bottom: 2rem;">
+            <h2 style="margin-bottom: 1rem;">Возможности сайта:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0;">✅ 4 основные закладки в хедере</li>
+                <li style="padding: 0.5rem 0;">✅ Каждая закладка имеет выпадающее меню с 3 подстраницами</li>
+                <li style="padding: 0.5rem 0;">✅ Общий хедер и футер на всех страницах</li>
+                <li style="padding: 0.5rem 0;">✅ Адаптивный дизайн</li>
+            </ul>
         </div>
-    </div>
-</footer>
-`;
-
-// Экспорт
-window.GitHubComponents = { Header, Footer };
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Репозитории</h3>
+                <p>Просмотр репозиториев GitHub пользователей</p>
+                <a href="repositories/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Звезды</h3>
+                <p>Отмеченные звездами проекты</p>
+                <a href="stars/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Gists</h3>
+                <p>Фрагменты кода пользователей</p>
+                <a href="gists/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+            <div style="padding: 1.5rem; background: white; border: 1px solid #e1e4e8; border-radius: 6px;">
+                <h3>Активность</h3>
+                <p>Последние действия пользователей</p>
+                <a href="activity/index.html" style="color: #0366d6; text-decoration: none;">Перейти →</a>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer"></div>
+    
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
